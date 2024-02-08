@@ -13,7 +13,7 @@ const Drawer = createDrawerNavigator();
 
 const MyDrawer = () => {
   return (
-    <Drawer.Navigator>
+    <Drawer.Navigator initialRouteName='Home' screenOptions={{ headerShown: false }}>
       <Drawer.Screen name="Feed" component={Feed} />
     </Drawer.Navigator>
   );
@@ -23,7 +23,7 @@ const MyDrawer = () => {
 const Rotas = () => {
   return (
     <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Navigator initialRouteName='Home' screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Signin" component={Signin} />
             <Stack.Screen name="Signup" component={Signup} />
