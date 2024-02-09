@@ -1,9 +1,10 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createDrawerNavigator, DrawerContent, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { colors} from "../src/styles/tema.json"
 import Icon from "react-native-vector-icons/SimpleLineIcons"
+import { Title } from "../src/componentes"
 
 import Home from './pages/home'
 import Signin from './pages/Signin'
@@ -13,24 +14,49 @@ import Feed from './pages/feed'
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
+const CustomDrawer = (props)=>{
+  return(
+    <DrawerContentScrollView {...props}>
+      <Title bold color='light' variant='big' hasPadding >LOOKAPP</Title>
+      <DrawerItemList {...props}/>
+    </DrawerContentScrollView>
+  )
+}
+
 const MyDrawer = () => {
   return (
     <Drawer.Navigator 
     initialRouteName='Home' 
+    drawerContent={props => <CustomDrawer {...props}/>}
     screenOptions={{ headerShown: false,
       drawerStyle:{
         backgroundColor: `${colors.black}`,
       }, 
       drawerActiveBackgroundColor: `${colors.danger}`,
       drawerActiveTintColor: `${colors.light}`,
-      drawerInactiveBackgroundColor:`${colors.gray50}`
+      drawerInactiveTintColor:`${colors.gray50}`
     }}>
       <Drawer.Screen options={{drawerIcon:({focuses, color}) =>(
         <Icon name='people' color={color}/>
       ) }} 
       name="Feed" 
       component={Feed} />
+
+            <Drawer.Screen options={{drawerIcon:({focuses, color}) =>(
+        <Icon name='tag' color={color}/>
+      ) }} 
+      name="Marketplace" 
+      component={Feed} />
+
+            <Drawer.Screen options={{drawerIcon:({focuses, color}) =>(
+        <Icon name='basket' color={color}/>
+      ) }} 
+      name="Orders" 
+      component={Feed} />
+
+
     </Drawer.Navigator>
+    
   );
 }
 
