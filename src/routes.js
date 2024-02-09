@@ -2,6 +2,8 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { colors} from "../src/styles/tema.json"
+import Icon from "react-native-vector-icons/SimpleLineIcons"
 
 import Home from './pages/home'
 import Signin from './pages/Signin'
@@ -13,8 +15,21 @@ const Drawer = createDrawerNavigator();
 
 const MyDrawer = () => {
   return (
-    <Drawer.Navigator initialRouteName='Home' screenOptions={{ headerShown: false }}>
-      <Drawer.Screen name="Feed" component={Feed} />
+    <Drawer.Navigator 
+    initialRouteName='Home' 
+    screenOptions={{ headerShown: false,
+      drawerStyle:{
+        backgroundColor: `${colors.black}`,
+      }, 
+      drawerActiveBackgroundColor: `${colors.danger}`,
+      drawerActiveTintColor: `${colors.light}`,
+      drawerInactiveBackgroundColor:`${colors.gray50}`
+    }}>
+      <Drawer.Screen options={{drawerIcon:({focuses, color}) =>(
+        <Icon name='people' color={color}/>
+      ) }} 
+      name="Feed" 
+      component={Feed} />
     </Drawer.Navigator>
   );
 }

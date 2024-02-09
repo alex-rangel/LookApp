@@ -1,19 +1,27 @@
 import React from "react";
 import { SafeAreaView } from "react-native";
-import { Box, Text, Touchable } from "../../componentes"
+import { Box, Text, Touchable,Spacer } from "../../componentes"
 import { colors} from "../../styles/tema.json"
 import Icon from "react-native-vector-icons/MaterialCommunityIcons"
+import { useNavigation } from "@react-navigation/native"
 
 const Header = ()=> {
+
+    const navigation = useNavigation()
+
     return(
-        <Box fluid 
-        background="litht"
-        height="70px"
-        border= {`1px solid ${colors.muted} `}>
-            <SafeAreaView style={{flexDirection:"row"}}>
+        <>
+            <Spacer size="50px"/>
+            <SafeAreaView style={{
+                flexDirection:"row",
+                borderBottomWidth:1,
+                borderBottomStyle: 'solid',
+                borderBottomColor: `${colors.muted}`
+                }}>
                 <Touchable justify="center"
                  align="center" 
-                 width="80px">
+                 width="80px"
+                 onPress={()=>navigation.openDrawer()}>
                     <Icon name="menu" size={20} color="black"/>
                 </Touchable>
                 <Box justify="center" 
@@ -25,8 +33,8 @@ const Header = ()=> {
 
                 </Touchable>
             </SafeAreaView>
-        </Box>
-    )
+        </>
+        )
 }
 
 export default Header
