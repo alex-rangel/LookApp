@@ -5,7 +5,7 @@ import { colors} from "../../styles/tema.json"
 import Icon from "react-native-vector-icons/MaterialCommunityIcons"
 import { useNavigation } from "@react-navigation/native"
 
-const Header = ()=> {
+const Header = ({ Title = 'Explore', right=null })=> {
 
     const navigation = useNavigation()
 
@@ -27,11 +27,9 @@ const Header = ()=> {
                 <Box justify="center" 
                 align="center" 
                 background="light">
-                    <Text color="black" bold>Explore</Text>
+                    <Text color="black" bold>{Title}</Text>
                 </Box>
-                <Touchable width="80px">
-
-                </Touchable>
+                {right ? right() : <Touchable width="80px"></Touchable>}
             </SafeAreaView>
         </>
         )

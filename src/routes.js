@@ -10,6 +10,9 @@ import Home from './pages/home'
 import Signin from './pages/Signin'
 import Signup from './pages/Signup'
 import Feed from './pages/feed'
+import Marketplace from './pages/marketplace';
+import Category from './pages/marketplace/Category';
+import Product from './pages/marketplace/product';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -46,7 +49,7 @@ const MyDrawer = () => {
         <Icon name='tag' color={color}/>
       ) }} 
       name="Marketplace" 
-      component={Feed} />
+      component={Marketplace} />
 
             <Drawer.Screen options={{drawerIcon:({focuses, color}) =>(
         <Icon name='basket' color={color}/>
@@ -69,6 +72,8 @@ const Rotas = () => {
             <Stack.Screen name="Signin" component={Signin} />
             <Stack.Screen name="Signup" component={Signup} />
             <Stack.Screen name="Feed" component={MyDrawer} />
+            <Stack.Screen name="Category" component={Category} />
+            <Stack.Screen name="Product" component={Product} />
         </Stack.Navigator>
     </NavigationContainer>
   );
