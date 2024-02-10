@@ -9,7 +9,7 @@ const Marketplace = () => {
         
         <Box background="light">
             <Header Title="Category" right={()=>(
-                <Touchable width="70px">
+                <Touchable onPress={ () => alert('teste')} width="70px">
                     <Icon name="bag" size={20}/>
                 </Touchable>
             )}/>  
