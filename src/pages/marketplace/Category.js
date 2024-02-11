@@ -1,12 +1,21 @@
 import React from "react"
-import { Box, Title } from "../../componentes"
+import { Box, Touchable } from "../../componentes"
+import Header from "../../componentes/Header"
+import Icon from "react-native-vector-icons/SimpleLineIcons"
+
+import ProductList from "../../componentes/Product/productList"
 
 const Category = () => {
 
   return ( 
         
-        <Box justify="center" hasPadding align="center" background="light">
-            <Title bold variant='big'>Category</Title>
+        <Box color="muted">
+            <Header Title="Category X" right={()=>(
+                <Touchable onPress={ () => alert('teste')} width="70px">
+                    <Icon name="bag" size={20}/>
+                </Touchable>
+            )}/>
+            <ProductList/> 
         </Box>
   )
 };

@@ -11,12 +11,14 @@ const Header = ({ Title = 'Explore', right=null })=> {
 
     return(
         <>
-            <Spacer size="50px"/>
+            <Spacer size="50px" style={{backgroundColor:`${colors.light}`}}/>
             <SafeAreaView style={{
+                backgroundColor:colors.light,
                 flexDirection:"row",
                 borderBottomWidth:1,
                 borderBottomStyle: 'solid',
-                borderBottomColor: `${colors.muted}`
+                borderBottomColor: `${colors.muted}`,
+                paddingBottom:10,
                 }}>
                 <Touchable justify="center"
                  align="center" 

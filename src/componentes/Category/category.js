@@ -1,11 +1,15 @@
 import React from "react"
 import { Box, Title, Touchable, Spacer, Text, Cover } from "../../componentes"
 
+import { useNavigation } from "@react-navigation/native"
+
 import util from "../../util"
 import { colors } from "../../styles/tema.json"; 
 
 
 const Category = ({title, description}) => {
+
+    const { navigate } = useNavigation()
 
   return ( 
         
@@ -14,6 +18,7 @@ const Category = ({title, description}) => {
             height="180px"
             radius="10px"
             spacing="10px 0px"
+            onPress={ () => navigate('Category')}
         >
             <Cover 
                 width="100%"
