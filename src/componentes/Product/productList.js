@@ -11,7 +11,12 @@ const ProductList = () => {
         <ScrollView 
             fluid
         >
-            {Array.from(Array(20)).map(items => <Item/>)}
+            {Array.from(Array(20)).map(items => <Item 
+              cover="https://cursinhoparamedicina.com.br/wp-content/uploads/2022/10/Paisagem-1.jpg"
+              brand="Raf Simons"
+              title="Large striped cardigan"
+              price="1080"
+            />)}
             
         </ScrollView>
   )
