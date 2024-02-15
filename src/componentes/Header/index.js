@@ -5,7 +5,7 @@ import { colors} from "../../styles/tema.json"
 import Icon from "react-native-vector-icons/MaterialCommunityIcons"
 import { useNavigation } from "@react-navigation/native"
 
-const Header = ({ Title = 'Explore', right=null })=> {
+const Header = ({ Title = 'Explore', right=null, goBack = false})=> {
 
     const navigation = useNavigation()
 
@@ -23,8 +23,8 @@ const Header = ({ Title = 'Explore', right=null })=> {
                 <Touchable justify="center"
                  align="center" 
                  width="80px"
-                 onPress={()=>navigation.openDrawer()}>
-                    <Icon name="menu" size={20} color="black"/>
+                 onPress={()=>navigation[!goBack ? 'openDrawer' : 'goBack']()}>
+                    <Icon name={!goBack? "menu" : "arrow-left"} size={20} color="black"/>
                 </Touchable>
                 <Box justify="center" 
                 align="center" 

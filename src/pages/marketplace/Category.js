@@ -10,7 +10,7 @@ const Category = () => {
   return ( 
         
         <Box color="muted">
-            <Header Title="Category X" right={()=>(
+            <Header Title="Category X" goBack right={()=>(
                 <Touchable onPress={ () => alert('teste')} width="70px">
                     <Icon name="bag" size={20}/>
                 </Touchable>

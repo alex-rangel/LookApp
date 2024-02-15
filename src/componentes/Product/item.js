@@ -1,14 +1,18 @@
 import React from "react"
 import { Text, Box, Touchable, Cover, Spacer} from "../../componentes"
+import { useNavigation } from "@react-navigation/native";
 
 
 const Item = ({ cover, brand, title, price }) => {
+
+    const { navigate }= useNavigation()
 
   return ( 
         
         <Box fluid >
             <Touchable
                 hasPadding
+                onPress={()=> navigate('Product')}
                 row
                 background="light"
                 spacing="0px 0px 3px 0px"

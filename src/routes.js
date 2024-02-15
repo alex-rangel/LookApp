@@ -67,7 +67,7 @@ const MyDrawer = () => {
 const Rotas = () => {
   return (
     <NavigationContainer>
-        <Stack.Navigator initialRouteName='Home' screenOptions={{ headerShown: false }}>
+        <Stack.Navigator initialRouteName='Product' screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Signin" component={Signin} />
             <Stack.Screen name="Signup" component={Signup} />
