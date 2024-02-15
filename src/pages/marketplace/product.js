@@ -5,6 +5,7 @@ import { colors } from "../../styles/tema.json"
 import util from "../../util"
 
 import Header from "../../componentes/Header"
+import Picker from "../../componentes/Picker"
 import Icon from "react-native-vector-icons/SimpleLineIcons"
 
 const Product = () => {
@@ -42,6 +43,18 @@ const Product = () => {
                     <Text color="dark">
                         Enjoy the beauty of italian cotton all over your body. This item will fit your body and warm you up all over and during spring. This item will fit your body and warm you up all over and during spring.    
                     </Text>
+                    <Spacer size="30px"/>
+                    <Picker
+                        title="Size"
+                        options={[
+                            {label: 'P', value: 'P'},
+                            {label: 'M', value: 'M'},
+                            {label: 'G', value: 'G'},
+                            {label: 'XG', value: 'XG'}
+                        ]}
+                        initialValue="M"
+                        onChange={value => alert(value)}
+                    />
                     <Spacer size="30px"/>
                     <Button block>
                         <Text color="light">Add to Card</Text>
