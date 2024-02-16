@@ -13,6 +13,7 @@ import Feed from './pages/feed'
 import Marketplace from './pages/marketplace';
 import Category from './pages/marketplace/Category';
 import Product from './pages/marketplace/product';
+import Cart from './pages/Cart';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -67,13 +68,14 @@ const MyDrawer = () => {
 const Rotas = () => {
   return (
     <NavigationContainer>
-        <Stack.Navigator initialRouteName='Product' screenOptions={{ headerShown: false }}>
+        <Stack.Navigator initialRouteName='Cart' screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Signin" component={Signin} />
             <Stack.Screen name="Signup" component={Signup} />
             <Stack.Screen name="Feed" component={MyDrawer} />
             <Stack.Screen name="Category" component={Category} />
             <Stack.Screen name="Product" component={Product} />
+            <Stack.Screen name="Cart" component={Cart} />
         </Stack.Navigator>
     </NavigationContainer>
   );

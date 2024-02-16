@@ -3,7 +3,7 @@ import { Text, Box, Touchable, Cover, Spacer} from "../../componentes"
 import { useNavigation } from "@react-navigation/native";
 
 
-const Item = ({ cover, brand, title, price }) => {
+const Item = ({ cover, brand, title, price, selected = false }) => {
 
     const { navigate }= useNavigation()
 
@@ -11,11 +11,11 @@ const Item = ({ cover, brand, title, price }) => {
         
         <Box fluid >
             <Touchable
-                hasPadding
+                hasPadding={!selected}
                 onPress={()=> navigate('Product')}
                 row
                 background="light"
-                spacing="0px 0px 3px 0px"
+                spacing={selected ? '5px 0px' : '0px 0px 3px 0px'}
             >
                 <Cover
                     width="80px"
@@ -24,12 +24,17 @@ const Item = ({ cover, brand, title, price }) => {
                 >
                 </Cover>
                 <Box hasPadding style={{paddingBottom:0, paddingTop:0}}>
-                        <Text color="dark" >{brand}</Text>
+                        { !selected && <Text color="dark" >{brand}</Text>}
                         <Text color="dark" bold >{title}</Text>
                         <Spacer/>
+                        {selected && (
+                            <Box>
+                                <Text color='dark'>Size: XG</Text>
+                            </Box>
+                        )}
                         <Box row width="100%" justify="space-between">
                             <Text color="dark">{price}</Text>
-                            <Text color="danger">Add to cart</Text>
+                            <Text color="danger">{selected ? 'Remove' : 'Add to cart'}</Text>
                         </Box>
                 </Box>
             </Touchable>
