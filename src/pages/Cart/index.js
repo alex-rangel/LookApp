@@ -5,6 +5,7 @@ import Header from "../../componentes/Header";
 import Tabs from "../../componentes/Tabs";
 import Item from "../../componentes/Product/item";
 import Payment from "../../componentes/Forms/payment";
+import CongratsModal from "../../componentes/Modals/congrats";
 
 import { colors } from "../../styles/tema.json"
 import util from "../../util"
@@ -12,9 +13,11 @@ import util from "../../util"
 const Cart = () => {
 
     const[tab, setTab ] = useState('cart')
+    const [showCongrats, setShowCongrats] = useState(false)
 
     return(
         <>
+            {showCongrats && <CongratsModal/>}
             <Header Title="Cart" goBack/>
             <Tabs tabs={[
                     {label: 'Cart', value: 'cart'},
@@ -115,7 +118,7 @@ const Cart = () => {
                     <Spacer size='30px'/>
                     <Payment onChange={(creditCardData)=> console.log(creditCardData)}/>
                     <Spacer size='30px'/>    
-                    <Button  block onPress={() => {}}>
+                    <Button  block onPress={() => {setShowCongrats(true)}}>
                         <Text color="light">
                             Confirmation
                         </Text>
