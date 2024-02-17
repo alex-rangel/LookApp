@@ -14,6 +14,7 @@ import Marketplace from './pages/marketplace';
 import Category from './pages/marketplace/Category';
 import Product from './pages/marketplace/product';
 import Cart from './pages/Cart';
+import Orders from './pages/Orders';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -30,7 +31,7 @@ const CustomDrawer = (props)=>{
 const MyDrawer = () => {
   return (
     <Drawer.Navigator 
-    initialRouteName='Home' 
+    initialRouteName='Feed' 
     drawerContent={props => <CustomDrawer {...props}/>}
     screenOptions={{ headerShown: false,
       drawerStyle:{
@@ -56,7 +57,7 @@ const MyDrawer = () => {
         <Icon name='basket' color={color}/>
       ) }} 
       name="Orders" 
-      component={Feed} />
+      component={Orders} />
 
 
     </Drawer.Navigator>
@@ -68,7 +69,7 @@ const MyDrawer = () => {
 const Rotas = () => {
   return (
     <NavigationContainer>
-        <Stack.Navigator initialRouteName='Cart' screenOptions={{ headerShown: false }}>
+        <Stack.Navigator initialRouteName='Home' screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Signin" component={Signin} />
             <Stack.Screen name="Signup" component={Signup} />
@@ -76,6 +77,7 @@ const Rotas = () => {
             <Stack.Screen name="Category" component={Category} />
             <Stack.Screen name="Product" component={Product} />
             <Stack.Screen name="Cart" component={Cart} />
+            <Stack.Screen name="Orders" component={Orders} />
         </Stack.Navigator>
     </NavigationContainer>
   );

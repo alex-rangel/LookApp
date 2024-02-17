@@ -5,7 +5,7 @@ import { colors} from "../../styles/tema.json"
 import Icon from "react-native-vector-icons/MaterialCommunityIcons"
 import { useNavigation } from "@react-navigation/native"
 
-const Header = ({ Title = 'Explore', right=null, goBack = false})=> {
+const Header = ({ Title = 'Explore', right=null, goBack = false, drawer = false})=> {
 
     const navigation = useNavigation()
 

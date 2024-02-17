@@ -1,4 +1,5 @@
 import React from "react"
+import { useNavigation } from "@react-navigation/native";
 
 import { Box, Touchable, ScrollView, Cover, Text, Title, Spacer, Button} from "../../componentes"
 import { colors } from "../../styles/tema.json"
@@ -9,6 +10,8 @@ import Picker from "../../componentes/Picker"
 import Icon from "react-native-vector-icons/SimpleLineIcons"
 
 const Product = () => {
+
+    const { navigate }= useNavigation()
 
   return ( 
         
@@ -56,7 +59,7 @@ const Product = () => {
                         onChange={value => alert(value)}
                     />
                     <Spacer size="30px"/>
-                    <Button block>
+                    <Button block onPress={()=> navigate('Cart')}>
                         <Text color="light">Add to Card</Text>
                     </Button>
                 </Box>

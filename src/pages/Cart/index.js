@@ -32,7 +32,7 @@ const Cart = () => {
                 <Spacer size='20px'/>
                 {tab === 'cart' && (
                     <> 
-                        {Array.from(Array(10)).map(items => <Item 
+                        {Array.from(Array(4)).map(items => <Item 
                             cover="https://cursinhoparamedicina.com.br/wp-content/uploads/2022/10/Paisagem-1.jpg"
                             brand="Raf Simons"
                             title="Large striped cardigan"
