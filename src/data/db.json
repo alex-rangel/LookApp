@@ -2,8 +2,8 @@
     "users": [
       {
         "id": 1,
-        "name": "Silvio Sampaio",
-        "email": "silvio@teste.com",
+        "name": "Alex Rangel",
+        "email": "Alex@teste.com",
         "password": "123"
       },
       {
