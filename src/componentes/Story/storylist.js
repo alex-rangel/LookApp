@@ -2,7 +2,7 @@ import React from "react";
 import {Box, Title, Text, ScrollView} from "../../componentes"
 import Stories from "./Stories";
 
-const StoryList = () =>{
+const StoryList = ({ stories }) =>{
     return(
         <Box fluid
         background="light"
@@ -25,7 +25,7 @@ const StoryList = () =>{
                 </Text>
             </Box>
             <ScrollView horizontal fluid>
-                {Array.from(Array(10)).map(items => < Stories/>)}
+                {stories?.map(story => < Stories story={story}/>)}
             </ScrollView>
         </Box>
     )

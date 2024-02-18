@@ -1,16 +1,48 @@
-import React from "react";
-import { Box, ScrollView} from "../../componentes"
+import React, {useState, useEffect} from "react";
+import { ActivityIndicator } from "react-native"
+import { Box, ScrollView, Text} from "../../componentes"
+
+import api from "../../services/api";
+
 import Header from "../../componentes/Header";
 import StoryList from "../../componentes/Story/storylist";
 import Post from "../../componentes/Posts";
 
-const Feed = () => {
+const Feed = ({ navigation }) => {
+
+    const [loading, setLoading]= useState(false)
+    const [feed, setFeed] = useState({
+        stories: [],
+        posts: []
+    })
+
+    const getFeed = async() =>{
+        try {
+            setLoading(true)
+            const { data:feedData } = await api.get('/feed')
+            setFeed(feedData)
+            setLoading(false)
+        } catch (error) {
+            setLoading(false)
+            alert(error.mensage)
+        }
+    }
+
+    //FOCUS
+    useEffect(() =>{
+        const unsubscribe = navigation.addListener('focus', () =>{
+            getFeed()
+        })
+
+        return unsubscribe
+    }, [navigation])
+
     return(
     <Box background="light">
         <Header Title='Explore'/>
         <ScrollView>
-            <StoryList/>
-            <Post/>
+            <StoryList stories={feed?.stories}/>
+            <Post posts={feed?.posts}/>
         </ScrollView>
     </Box>
     )
