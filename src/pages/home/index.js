@@ -15,7 +15,7 @@ const Home = () => {
   const checkLogged = async() => {
      
     setLoading(true)
-
+      AsyncStorage.clear()
       const loggedUser = await AsyncStorage.getItem('@user')
       if(loggedUser){
         setUser(JSON.parse(loggedUser))

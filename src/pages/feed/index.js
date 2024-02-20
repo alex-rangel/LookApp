@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, ScrollView} from "../../componentes"
 import Header from "../../componentes/Header";
 import StoryList from "../../componentes/Story/storylist";
@@ -17,9 +17,12 @@ const Feed = ({ navigation }) => {
         try {
             setLoading(true)
             const { data:feedData } = await api.get('/feed')
+            
             setFeed(feedData)
             setLoading(false)
+        
         } catch (error) {
+            
             setLoading(false)
             alert(error.mensage)
         }
@@ -41,7 +44,6 @@ const Feed = ({ navigation }) => {
             <StoryList stories={feed?.stories}/>
             <Post posts={feed?.posts}/>
         </ScrollView>
-        )}
     </Box>
     )
 }

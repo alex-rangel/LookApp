@@ -15,7 +15,7 @@ const Posts = ({ post })=>{
                 </Cover>
                 <Box>
                     <Text bold color="black">{post?.owner?.username}</Text>
-                    <Text variant="small">{moment(post.createdAt).fromNow()}</Text>
+                    <Text variant="small">{post?.createdAt}</Text>
                 </Box>
                 <Touchable height="30px"
                 width="100px" 
