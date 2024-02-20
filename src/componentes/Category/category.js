@@ -7,7 +7,7 @@ import util from "../../util"
 import { colors } from "../../styles/tema.json"; 
 
 
-const Category = ({title, description}) => {
+const Category = ({ categoria }) => {
 
     const { navigate } = useNavigation()
 
@@ -23,7 +23,7 @@ const Category = ({title, description}) => {
             <Cover 
                 width="100%"
                 height="100%"
-                image="https://cursinhoparamedicina.com.br/wp-content/uploads/2022/10/Paisagem-1.jpg"
+                image={categoria?.cover}
             >
                 <Box
                     width="100%"
@@ -32,9 +32,9 @@ const Category = ({title, description}) => {
                     hasPadding
                     background={util.toAlpha(colors.black, 50)}
                 >
-                    <Title color="light" bold >{ title }</Title>
+                    <Title color="light" bold >{categoria?.title}</Title>
                     <Spacer/>
-                    <Text color="light" >{ description }</Text>
+                    <Text color="light" >{categoria?.description}ITEMS </Text>
                 </Box>
             </Cover>
         </Touchable>

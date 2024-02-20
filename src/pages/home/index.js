@@ -1,23 +1,25 @@
 import React, { useContext, useEffect, useState } from "react"
 import { Box, Title, Button, Spacer, Text} from "../../componentes"
+import { useNavigation } from "@react-navigation/native";
 import { AppContext } from '../../Contexts/app'
 import { ActivityIndicator } from 'react-native'
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const Home = ({navigation: {navigate, replace}}) => {
+const Home = () => {
 
-  const [loading, setLoading] = useState(false)
-  const { setUsuario } = useContext(AppContext)
+  const { navigate }= useNavigation()
+
+  const [loading, setLoading] = useState(true)
+  const { setUser } = useContext(AppContext)
 
   const checkLogged = async() => {
+     
     setLoading(true)
 
       const loggedUser = await AsyncStorage.getItem('@user')
-
       if(loggedUser){
-        setUsuario(JSON.parse(loggedUser))
-        replace('Feed')
-        
+        setUser(JSON.parse(loggedUser))
+        navigate('Feed')
       }else{
         setLoading(false)
       }

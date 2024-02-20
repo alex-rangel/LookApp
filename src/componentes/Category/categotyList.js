@@ -4,7 +4,7 @@ import { Box, Title, ScrollView} from "../../componentes"
 import Category from "./category"
 
 
-const CategoryList = () => {
+const CategoryList = ({ categories }) => {
 
   return ( 
         
@@ -16,7 +16,7 @@ const CategoryList = () => {
                 paddingRight:20
             }}
         >
-            {Array.from(Array(10)).map(items => <Category title={`Category`} description="123456 Itens"/>)}
+            {categories?.map(category => <Category categoria={category}/>)}
             
         </ScrollView>
   )

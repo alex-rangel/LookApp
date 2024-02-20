@@ -1,12 +1,9 @@
-import React, {useState, useEffect} from "react";
-import { ActivityIndicator } from "react-native"
-import { Box, ScrollView, Text} from "../../componentes"
-
-import api from "../../services/api";
-
+import React from "react";
+import { Box, ScrollView} from "../../componentes"
 import Header from "../../componentes/Header";
 import StoryList from "../../componentes/Story/storylist";
 import Post from "../../componentes/Posts";
+import Carregamento from "../../componentes/carregamento";
 
 const Feed = ({ navigation }) => {
 
@@ -44,6 +41,7 @@ const Feed = ({ navigation }) => {
             <StoryList stories={feed?.stories}/>
             <Post posts={feed?.posts}/>
         </ScrollView>
+        )}
     </Box>
     )
 }

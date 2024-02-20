@@ -44,7 +44,7 @@ const SignUp = ({navigation: {navigate, replace}}) => {
         await AsyncStorage.setItem('@user', JSON.stringify(loggedUser) )
 
       //PUT USER IN CONTEXT
-        setUsuario(loggedUser)
+        setUserContext(loggedUser)
 
       //GO TO FEED
         replace('Feed')
