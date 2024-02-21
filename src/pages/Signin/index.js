@@ -34,17 +34,17 @@ const Signin = ({navigation: {navigate, replace}}) => {
         }
       })
       
-      const [loggedUser] = users
-      if(!loggedUser){
+      //const [loggedUser] = users
+      if(users == []){
         alert('User not found')
         return false
       }
 
       //STORE IN DEVICE
-        await AsyncStorage.setItem('@user', JSON.stringify(loggedUser) )
+        await AsyncStorage.setItem('@user', JSON.stringify(users) )
 
       //PUT USER IN CONTEXT
-      setUsuario(loggedUser)
+      setUsuario(users)
 
       //GO TO FEED
         replace('Feed')
