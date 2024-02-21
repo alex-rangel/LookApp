@@ -1,6 +1,5 @@
 import React from "react"
 import { useNavigation } from "@react-navigation/native";
-
 import { Box, Touchable, ScrollView, Cover, Text, Title, Spacer, Button} from "../../componentes"
 import { colors } from "../../styles/tema.json"
 import util from "../../util"

@@ -3,6 +3,7 @@ import { ActivityIndicator } from "react-native"
 import { Box, Touchable, Text } from "../../componentes"
 import Header from "../../componentes/Header"
 import Icon from "react-native-vector-icons/SimpleLineIcons"
+import Carregamento from "../../componentes/carregamento";
 
 import api from "../../services/api";
 
@@ -11,17 +12,18 @@ import CategoryList from "../../componentes/Category/categotyList"
 const Marketplace = ({ navigation }) => {
 
     const [loading, setLoading]= useState(false)
-    const [category, setCategory] = useState({})
+    const [category, setCategory] = useState([])
 
     const getCategory = async() =>{
         try {
             setLoading(true)
-            setTimeout(async () =>{
+
+            setTimeout( async () => {
                 const { data:categoryData } = await api.get('/categories')
                 setCategory(categoryData)
                 setLoading(false)
-        }, 1000 * 2)
-        } catch (error) {
+            }, 1000 *2)
+        }catch (error) {
             setLoading(false)
             alert(error.mensage)
         }
@@ -44,8 +46,9 @@ const Marketplace = ({ navigation }) => {
                     <Icon name="bag" size={20}/>
                 </Touchable>
             )}/>
-            <Text>{category}</Text> 
-             <CategoryList categories={category}/>
+
+            {loading && <Carregamento loading/>}
+            {!loading && <CategoryList categories={category}/>}
         </Box>
   )
 };

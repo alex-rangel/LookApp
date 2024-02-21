@@ -10,15 +10,14 @@ const Home = () => {
   const { navigate }= useNavigation()
 
   const [loading, setLoading] = useState(true)
-  const { setUser } = useContext(AppContext)
+  const { setUsuario } = useContext(AppContext)
 
   const checkLogged = async() => {
      
     setLoading(true)
-      AsyncStorage.clear()
       const loggedUser = await AsyncStorage.getItem('@user')
       if(loggedUser){
-        setUser(JSON.parse(loggedUser))
+        setUsuario(JSON.parse(loggedUser))
         navigate('Feed')
       }else{
         setLoading(false)

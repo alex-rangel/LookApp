@@ -3,6 +3,7 @@ import { Box, ScrollView} from "../../componentes"
 import Header from "../../componentes/Header";
 import StoryList from "../../componentes/Story/storylist";
 import Post from "../../componentes/Posts";
+import api from "../../services/api"
 import Carregamento from "../../componentes/carregamento";
 
 const Feed = ({ navigation }) => {
@@ -16,15 +17,18 @@ const Feed = ({ navigation }) => {
     const getFeed = async() =>{
         try {
             setLoading(true)
+
+            setTimeout( async () => {
+
             const { data:feedData } = await api.get('/feed')
-            
             setFeed(feedData)
             setLoading(false)
+            }, 1000 *2)
         
         } catch (error) {
             
             setLoading(false)
-            alert(error.mensage)
+            //alert(error.mensage)
         }
     }
 
@@ -40,10 +44,15 @@ const Feed = ({ navigation }) => {
     return(
     <Box background="light">
         <Header Title='Explore'/>
-        <ScrollView>
+
+        {loading && <Carregamento loading/>}
+
+        {!loading && <>
+        <ScrollView style={{width:'100%'}}>
             <StoryList stories={feed?.stories}/>
             <Post posts={feed?.posts}/>
         </ScrollView>
+        </>}
     </Box>
     )
 }

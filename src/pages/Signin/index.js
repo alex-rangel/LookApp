@@ -5,7 +5,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AppContext } from "../../Contexts/app"
 
 
-const SignUp = ({navigation: {navigate, replace}}) => {
+const Signin = ({navigation: {navigate, replace}}) => {
 
   const { setUsuario } = useContext(AppContext)
   
@@ -90,4 +90,4 @@ const SignUp = ({navigation: {navigate, replace}}) => {
 };
 
 
-export default SignUp;
+export default Signin;
