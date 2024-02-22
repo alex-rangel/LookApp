@@ -42,7 +42,7 @@ const Marketplace = ({ navigation }) => {
         
         <Box background="light">
             <Header Title="Category" right={()=>(
-                <Touchable onPress={ () => alert('teste')} width="70px">
+                <Touchable onPress={ () => navigation.navigate('Cart')} width="70px">
                     <Icon name="bag" size={20}/>
                 </Touchable>
             )}/>

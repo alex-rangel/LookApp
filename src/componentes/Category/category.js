@@ -18,7 +18,7 @@ const Category = ({ categoria }) => {
             height="180px"
             radius="10px"
             spacing="10px 0px"
-            onPress={ () => navigate('Category')}
+            onPress={ () => navigate('Category', { categoria })}
         >
             <Cover 
                 width="100%"
