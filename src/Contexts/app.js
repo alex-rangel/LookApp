@@ -11,7 +11,7 @@ export const AppContext = createContext({})
         const existentIndex = cart?.findIndex(p => p.id === product.id)
         let oldCart = cart
 
-        //SE EXISTIR NO CARRINHO
+        //SE EXISTIR NO CARRINHO DE COMPRA
         if(existentIndex !== -1){
             oldCart[existentIndex] = product
         }else{
