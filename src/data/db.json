@@ -146,7 +146,7 @@
     {
       "id": "1",
       "userId": 1,
-      "step": "waiting",
+      "step": "delivered",
       "createdAt": "2022-04-21T12:32",
       "orderNumber": "1947034",
       "trackingNumber": "IW3475453455",
@@ -154,62 +154,24 @@
       "totalItems": 3
     },
     {
-      "userId": 3,
+      "id": "9d22",
+      "userId": 1,
       "step": "waiting",
-      "createdAt": "2022-04-22T11:42:10-03:00",
-      "orderNumber": 1650637813697,
-      "trackingNumber": 1650638530813,
-      "totalValue": 1079.2,
-      "totalItems": 1,
-      "id": "2"
+      "createdAt": "2024-02-25T12:54:24-03:00",
+      "orderNumber": 1708875855455,
+      "trackingNumber": 1708876464570,
+      "totalValue": 3232,
+      "totalItems": 2
     },
     {
-      "step": "waiting",
-      "createdAt": "2022-04-22T12:29:54-03:00",
-      "orderNumber": 1650641359165,
-      "trackingNumber": 1650641394273,
-      "totalValue": 1079.2,
-      "totalItems": 1,
-      "id": "3"
-    },
-    {
-      "userId": 4,
-      "step": "delivered",
-      "createdAt": "2022-04-22T12:43:33-03:00",
-      "orderNumber": 1650641635100,
-      "trackingNumber": 1650642213295,
-      "totalValue": 2485,
-      "totalItems": 1,
-      "id": "4"
-    },
-    {
-      "userId": 4,
+      "id": "1",
+      "userId": 1,
       "step": "canceled",
-      "createdAt": "2022-04-22T12:43:33-03:00",
-      "orderNumber": 1650641635100,
-      "trackingNumber": 1650642213295,
-      "totalValue": 2485,
-      "totalItems": 1,
-      "id": "4"
-    },
-    {
-      "userId": 4,
-      "step": "waiting",
-      "createdAt": "2022-05-13T21:53:16-03:00",
-      "orderNumber": 1652489372970,
-      "trackingNumber": 1652489596599,
-      "totalValue": 982,
-      "totalItems": 1,
-      "id": "5"
-    },
-    {
-      "id": "94f2",
-      "step": "waiting",
-      "createdAt": "2024-02-25T08:42:49-03:00",
-      "orderNumber": 1708861071697,
-      "trackingNumber": 1708861369255,
-      "totalValue": 2260,
-      "totalItems": 1
+      "createdAt": "2022-04-21T12:32",
+      "orderNumber": "1947034",
+      "trackingNumber": "IW3475453455",
+      "totalValue": 80.58,
+      "totalItems": 3
     }
   ]
 }

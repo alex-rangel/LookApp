@@ -4,7 +4,7 @@ import { ScrollView,Spacer} from "../../componentes"
 import OrderItem from "../Order/OrderItem"
 
 
-const OrderList = () => {
+const OrderList = ({ orders }) => {
 
   return ( 
         <ScrollView 
@@ -12,8 +12,8 @@ const OrderList = () => {
             background='light'
             hasPadding
         > 
-            {Array.from(Array(3)).map(items => (
-                <OrderItem/>
+            {orders?.map(order => (
+                <OrderItem order={order}/>
             ))}
             <Spacer size='20px'/>
         </ScrollView>

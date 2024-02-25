@@ -1,5 +1,6 @@
 import React from "react"
 import { Text, Box, Spacer, Title} from ".."
+import moment from "moment"
 
 import { colors } from "../../styles/tema.json"
 import util from "../../util"
@@ -7,7 +8,24 @@ import util from "../../util"
 import Icon from "react-native-vector-icons/SimpleLineIcons"
  
 
-const OrderItem = ( ) => {
+const OrderItem = ({order} ) => {
+
+    const stepEnum = {
+        waiting:{
+            icon:'clock',
+            color:'warning'
+        },
+        delivered:{
+            icon:'check',
+            color:'success'
+        },
+        canceled:{
+            icon:'close',
+            color:'danger'
+        }
+    }
+
+    const stepData = stepEnum[order?.step]
 
   return ( 
         <Box 
@@ -25,11 +43,11 @@ const OrderItem = ( ) => {
                 }}
                 >
                 <Box row align='center'>
-                    <Icon name='check' size={20} color={colors.secondary}/>
-                    <Text spacing='0px 0px 0px 5px' color='secondary' >delivered</Text>
+                    <Icon name='check' size={20} color={colors[stepData.color]}/>
+                    <Text spacing='0px 0px 0px 5px' color={stepData.color} >{order.step?.toUpperCase()}</Text>
                 </Box>
                 <Box row justify='flex-end'>
-                    <Text variant='small'>May 13, 2016 5:08 PM</Text>
+                    <Text variant='small'>{moment(order?.cretedAt).format('DD/MM/YYYY HH:mm')}</Text>
                 </Box>
             </Box>
             <Box hasPadding 
@@ -40,17 +58,17 @@ const OrderItem = ( ) => {
                     }}
                  >
                 <Title>
-                    Order №1947034
+                    Order №{order?.orderNumber}
                 </Title>
                 <Spacer/>
-                <Text>Tracking number:<Text color='dark'>IW3475453455</Text></Text>
+                <Text>Tracking number:<Text color='dark'>{order?.trackingNumber}</Text></Text>
             </Box>
             <Box row width='100%' hasPadding>
                 <Box row>
-                <Text variant='small'>VALUE OF ITEMS: <Text color='dark'>$80.58</Text></Text>
+                <Text variant='small'>VALUE OF ITEMS: <Text color='dark'>${order?.totalValue}</Text></Text>
                 </Box>
                 <Box row justify='flex-end'>
-                <Text variant='small'>QUANTITY: <Text color='dark'>20</Text></Text>
+                <Text variant='small'>QUANTITY: <Text color='dark'>{order?.totalItems}</Text></Text>
                 </Box>
             </Box>
         </Box>
