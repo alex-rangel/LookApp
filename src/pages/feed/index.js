@@ -23,7 +23,7 @@ const Feed = ({ navigation }) => {
             const { data:feedData } = await api.get('/feed')
             setFeed(feedData)
             setLoading(false)
-            }, 1000 *2)
+            }, 1)
         
         } catch (error) {
             

@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react"
+import React, { useState,useEffect, useContext } from "react"
 import { Box, Touchable, ScrollView, Cover, Text, Title, Spacer, Button} from "../../componentes"
 import { colors } from "../../styles/tema.json"
 import util from "../../util"
@@ -7,8 +7,11 @@ import Header from "../../componentes/Header"
 import Picker from "../../componentes/Picker"
 import Icon from "react-native-vector-icons/SimpleLineIcons"
 
+import { AppContext } from "../../Contexts/app"
+
 const Product = ({navigation, route }) => {
 
+    const { addTocart } = useContext(AppContext)
     const { product } = route?.params
     const [size, setSize] = useState(null)
 
@@ -57,7 +60,10 @@ const Product = ({navigation, route }) => {
                         onChange={value => setSize(value)}
                     />
                     <Spacer size="30px"/>
-                    <Button block onPress={()=> navigation.navigate('Cart')}>
+                    <Button block onPress={()=> {
+                        addTocart({...product, size})
+                        navigation.navigate('Cart')
+                    }}>
                         <Text color="light">Add to Card</Text>
                     </Button>
                 </Box>

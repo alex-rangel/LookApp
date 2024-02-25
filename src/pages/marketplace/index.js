@@ -22,7 +22,7 @@ const Marketplace = ({ navigation }) => {
                 const { data:categoryData } = await api.get('/categories')
                 setCategory(categoryData)
                 setLoading(false)
-            }, 1000 *2)
+            }, 1)
         }catch (error) {
             setLoading(false)
             alert(error.mensage)

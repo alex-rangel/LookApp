@@ -6,6 +6,8 @@ export const AppContext = createContext({})
 
     const [usuario, setUsuario] = useState({})
     const [cart, setCart] = useState([])
+    const discount_percentage = 0.10
+    const delivery_tax = 10
 
     const addTocart = (product) =>{
         const existentIndex = cart?.findIndex(p => p.id === product.id)
@@ -20,10 +22,13 @@ export const AppContext = createContext({})
 
         setCart(oldCart)}
 
-     const removeFromCart = () =>{}
+     const removeFromCart = (productId) =>{
+        const filteredProducts = cart?.filter(p => p.id !== productId)
+        setCart(filteredProducts)
+     }
 
     return(
-        <AppContext.Provider value={{usuario, setUsuario, addTocart}}>
+        <AppContext.Provider value={{usuario, setUsuario, addTocart, cart, removeFromCart, discount_percentage, delivery_tax}}>
             {children}
         </AppContext.Provider>
     )}
