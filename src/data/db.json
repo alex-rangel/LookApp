@@ -201,6 +201,15 @@
       "totalValue": 982,
       "totalItems": 1,
       "id": "5"
+    },
+    {
+      "id": "94f2",
+      "step": "waiting",
+      "createdAt": "2024-02-25T08:42:49-03:00",
+      "orderNumber": 1708861071697,
+      "trackingNumber": 1708861369255,
+      "totalValue": 2260,
+      "totalItems": 1
     }
   ]
 }

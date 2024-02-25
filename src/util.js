@@ -1,3 +1,5 @@
+import valid from 'card-validator'
+
 export default {
     toAlpha: (hex, alpha) => {
     const alphas = {
@@ -24,4 +26,27 @@ export default {
     };
     return hex + alphas[alpha];
     },
+    isvalidCreditCard: (creditCard) =>{
+        //holder name
+        if(!valid.cardholderName(creditCard.holder_name).isValid){
+            return{error: true, message: 'Invalid holder name.'}
+        }
+
+        //card number
+        if(!valid.number(creditCard.number).isValid){
+            return{error: true, message: 'Invalid card number.'}
+        }
+
+        // expiration date
+        // if(!valid.expirationDate(creditCard.valid_date).isValid){
+        //     return{error: true, message: 'Invalid expiration date.'}
+        // }
+
+        //cvv
+        if(!valid.cvv(creditCard.cvv).isValid){
+            return{error: true, message: 'Invalid cvv.'}
+        }
+
+        return {error: false}
+    }
     };
